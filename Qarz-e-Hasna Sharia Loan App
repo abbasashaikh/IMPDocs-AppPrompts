@@ -1,0 +1,282 @@
+Al-Khaire – Sharia-Compliant Qard-e-Hasan Loan Management System
+🎯 ROLE (NON-NEGOTIABLE)
+You are a Senior Islamic FinTech Architect, Sharia Advisor, and Full-Stack System Designer with hands-on experience in:
+Qard-e-Hasan (interest-free lending)
+Community / Masjid / Trust-managed funds
+Audit-ready financial systems
+Islamic compliance validation
+You must strictly follow Islamic finance principles.
+Any violation of Sharia rules is unacceptable.
+
+🕌 CORE ISLAMIC PRINCIPLES (STRICT)
+❌ No Riba (Interest) – zero interest, zero compounding
+❌ No penalties / late fees / profit
+❌ No hidden charges
+
+✅ Only Qard-e-Hasan (benevolent loan)
+✅ Amanah (trust), transparency, accountability
+✅ Every financial action must be auditable and reversible
+
+🧩 APPLICATION PURPOSE
+Al-Khaire is a web-based community loan management system that helps:
+Masjids / Trusts / Committees
+Families or small Islamic groups
+to manage interest-free loans, monthly EMI collections, and member records with:
+Full transparency
+Complete audit trail
+Simple UI for non-technical & elderly users
+Manual payments only (no payment gateway in MVP)
+
+👥 USER ROLES
+1️⃣ Admin (Committee / Trust)
+Full control over system
+Approves / rejects loans
+Decides EMI structure
+Manages members & guarantors
+Can edit / soft-delete / undo any record (with audit log)
+Generates reports
+
+2️⃣ Member (User)
+Can view own loan, EMI, repayments
+Upload repayment proof
+Cannot edit or delete financial data
+Receives notifications on every transaction
+
+🏗️ TECHNOLOGY STACK
+Backend (choose ONE, modular & clean)
+PHP (preferred for shared hosting)
+OR Node.js
+OR ASP.NET Core
+Database
+SQLite
+Lightweight
+Portable
+Audit-friendly
+Shared hosting compatible
+Frontend
+HTML + CSS + Vanilla JavaScript
+(Optional: Angular / React if clean & lightweight)
+Hosting
+Hostinger / Shared Hosting compatible
+No server-side dependencies that require VPS
+
+🔐 MODULE 1: AUTHENTICATION & SECURITY
+Admin & Member login
+Role-Based Access Control (RBAC)
+Secure password hashing
+Session timeout
+Admin actions protected with confirmation
+
+👤 MODULE 2: MEMBER MANAGEMENT
+Member Fields (MANDATORY)
+Full Name
+Mobile Number (unique)
+Address
+Joining Date
+Status (Active / Inactive)
+KYC / Documents Upload
+Members must upload at least one:
+Aadhaar Card
+PAN Card
+Driving License
+Other ID (configurable)
+Store:
+Document type
+File path
+Upload date
+Rules
+Duplicate check: Name + Mobile
+Member cannot be deleted permanently
+Soft delete only
+
+💰 MODULE 3: LOAN MANAGEMENT (Qard-e-Hasan)
+Loan Creation Fields
+Member ID
+Loan Amount
+Loan Date
+Purpose
+Education
+Medical
+Emergency
+Other
+Repayment Type:
+Monthly EMI (mandatory)
+Loan Status:
+Active
+Partially Paid
+Fully Repaid
+
+❌ No interest
+❌ No penalties
+
+🤝 MODULE 4: GUARANTOR RULES (VERY IMPORTANT)
+Each loan requires exactly TWO guarantors
+Guarantors must be:
+Existing members
+Active
+Not holding any active loan
+Not already acting as guarantor for another loan
+Restrictions
+
+A member with an active loan:
+❌ Cannot take another loan
+❌ Cannot become guarantor for anyone
+
+Enforce at database + backend validation level.
+
+📆 MODULE 5: EMI & MONTHLY CONTRIBUTION LOGIC
+EMI Components (Admin-Defined)
+Each month, a borrower pays:
+
+1️⃣ Fixed Monthly Community EMI
+Minimum ₹500 (configurable)
+Same for all borrowers
+
+2️⃣ Loan EMI
+Decided by Admin
+Flexible amount
+Can change (with audit log)
+Rules
+No interest calculation
+EMI is principal only
+Loan closes automatically when balance = 0
+
+🧾 MODULE 6: REPAYMENT / EMI COLLECTION
+Payment Modes
+Cash
+Online (manual entry only)
+Each Payment Record
+Member ID
+Loan ID
+EMI Type:
+Monthly Community EMI
+Loan EMI
+Amount
+Date
+Mode
+Entered By (Admin)
+Screenshot / proof (optional)
+
+🧮 MODULE 7: AUTO CALCULATIONS
+Outstanding balance auto-updates
+Loan auto-closes at zero balance
+Recalculate on:
+Edit
+Delete
+Undo delete
+
+🗑️ MODULE 8: DELETE & UNDO LOGIC (STRICT)
+❌ No hard delete anywhere
+Soft Delete Fields (ALL TABLES)
+is_deleted
+deleted_by
+deleted_at
+Rules
+Admin can undo delete
+Deleted records:
+Stay in database
+Appear in reports (marked as deleted)
+Undo must fully restore calculations
+
+📜 MODULE 9: FULL AUDIT LOG (MANDATORY)
+Log EVERY action, including:
+Login
+Member add/edit/delete
+Loan approve/edit/delete
+EMI add/edit/delete
+Guarantor assignment
+EMI amount change
+Audit Log Fields
+User ID
+Action Type
+Table Name
+Record ID
+Old Values (JSON)
+New Values (JSON)
+Timestamp
+IP Address
+Audit logs are read-only forever.
+
+📊 MODULE 10: REPORTING ENGINE
+Reports
+Member-wise loan report
+Active vs Closed loans
+Monthly EMI collection
+Yearly summary
+Outstanding balances
+Deleted records report
+Features
+Filter by:
+Date range
+Member
+Loan status
+Amount
+EMI type
+Save custom report filters
+Export:
+CSV
+PDF
+
+🖥️ MODULE 11: UI / UX RULES
+Simple, clean, non-flashy
+Large buttons & fonts (elder-friendly)
+English + Urdu labels (where possible)
+Dashboard shows:
+Total members
+Active loans
+Monthly collection
+Outstanding amount
+
+🔔 MODULE 12: NOTIFICATIONS (NO GATEWAY)
+SMS / WhatsApp design only
+Trigger on:
+EMI payment
+Loan approval
+Loan closure
+Store message logs for audit
+
+🗃️ MODULE 13: DATABASE DESIGN (SQLite)
+Tables (MINIMUM):
+users
+members
+member_documents
+loans
+loan_guarantors
+repayments
+audit_logs
+notifications_log
+Ensure:
+Foreign keys
+Indexes on member_id, loan_id
+Data integrity enforcement
+
+📦 AI DELIVERABLES REQUIRED
+You must generate:
+1️⃣ Complete system architecture
+2️⃣ SQLite database schema (SQL)
+3️⃣ Backend logic (modular)
+4️⃣ Frontend screens (HTML/CSS/JS)
+5️⃣ Audit log implementation
+6️⃣ EMI + guarantor enforcement logic
+7️⃣ Soft delete & undo mechanism
+8️⃣ Sample test data
+9️⃣ Deployment guide (Hostinger)
+
+🚫 EXPLICIT EXCLUSIONS
+❌ No interest
+❌ No EMI interest logic
+❌ No payment gateway
+❌ No penalties
+❌ No auto-debit
+
+🌱 FUTURE-READY (DESIGN ONLY)
+WhatsApp API integration
+Mobile app wrapper
+Public transparency dashboard
+Multi-Masjid / Multi-Trust support
+
+✅ FINAL INSTRUCTION
+Do NOT simplify.
+Do NOT skip modules.
+Do NOT violate Islamic finance rules.
+Build Al-Khaire as a production-ready, audit-proof, Sharia-compliant system.
